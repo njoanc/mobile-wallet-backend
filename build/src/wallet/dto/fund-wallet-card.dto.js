@@ -13,7 +13,6 @@ exports.FundWalletByCardDto = void 0;
 const class_validator_1 = require("class-validator");
 class FundWalletByCardDto {
 }
-exports.FundWalletByCardDto = FundWalletByCardDto;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
@@ -44,4 +43,5 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], FundWalletByCardDto.prototype, "otp", void 0);
+exports.FundWalletByCardDto = FundWalletByCardDto;
 //# sourceMappingURL=fund-wallet-card.dto.js.map

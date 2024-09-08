@@ -6,11 +6,11 @@ var TransactionType;
     TransactionType["DEBIT"] = "DEBIT";
     TransactionType["CREDIT"] = "CREDIT";
     TransactionType["PEER_TRANSFER"] = "PEER-TRANSFER";
-})(TransactionType || (exports.TransactionType = TransactionType = {}));
+})(TransactionType = exports.TransactionType || (exports.TransactionType = {}));
 var TransactionStatus;
 (function (TransactionStatus) {
     TransactionStatus["PENDING"] = "PENDING";
     TransactionStatus["SUCCESS"] = "SUCCESS";
     TransactionStatus["FAILED"] = "FAILED";
-})(TransactionStatus || (exports.TransactionStatus = TransactionStatus = {}));
+})(TransactionStatus = exports.TransactionStatus || (exports.TransactionStatus = {}));
 //# sourceMappingURL=transaction.enum.js.map

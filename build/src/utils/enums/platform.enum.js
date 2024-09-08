@@ -6,5 +6,5 @@ var Platform;
     Platform["ANDROID"] = "android";
     Platform["IOS"] = "ios";
     Platform["WEB"] = "web";
-})(Platform || (exports.Platform = Platform = {}));
+})(Platform = exports.Platform || (exports.Platform = {}));
 //# sourceMappingURL=platform.enum.js.map

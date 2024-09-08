@@ -52,7 +52,7 @@ let AuthService = class AuthService {
             // Check if a user with the same email or phone already exists
             const existingUser = await this.UserRepository.findOne({
                 where: [
-                    { email }, // Check for existing email
+                    { email },
                     { phone }, // Check for existing phone
                 ],
             });
@@ -86,12 +86,12 @@ let AuthService = class AuthService {
         }
     }
 };
-exports.AuthService = AuthService;
-exports.AuthService = AuthService = __decorate([
+AuthService = __decorate([
     (0, common_1.Injectable)(),
     __param(2, (0, typeorm_1.InjectRepository)(user_entity_1.User)),
     __metadata("design:paramtypes", [user_service_1.UserService,
         jwt_1.JwtService,
         typeorm_2.Repository])
 ], AuthService);
+exports.AuthService = AuthService;
 //# sourceMappingURL=auth.service.js.map

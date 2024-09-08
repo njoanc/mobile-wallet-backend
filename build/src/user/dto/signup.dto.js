@@ -14,7 +14,6 @@ const class_validator_1 = require("class-validator");
 const platform_enum_1 = require("../../utils/enums/platform.enum");
 class SignUpDto {
 }
-exports.SignUpDto = SignUpDto;
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
@@ -82,4 +81,5 @@ __decorate([
     (0, class_validator_1.IsEnum)(platform_enum_1.Platform, { message: 'Platform must be one of: android, ios, web' }),
     __metadata("design:type", String)
 ], SignUpDto.prototype, "platform", void 0);
+exports.SignUpDto = SignUpDto;
 //# sourceMappingURL=signup.dto.js.map

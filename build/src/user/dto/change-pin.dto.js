@@ -13,7 +13,6 @@ exports.ChangePinDto = void 0;
 const class_validator_1 = require("class-validator");
 class ChangePinDto {
 }
-exports.ChangePinDto = ChangePinDto;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
@@ -31,4 +30,5 @@ __decorate([
     (0, class_validator_1.MinLength)(6, { message: 'Pin must be at least 6 characters' }),
     __metadata("design:type", String)
 ], ChangePinDto.prototype, "confirmPin", void 0);
+exports.ChangePinDto = ChangePinDto;
 //# sourceMappingURL=change-pin.dto.js.map

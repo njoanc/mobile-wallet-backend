@@ -126,7 +126,7 @@ let UserService = class UserService {
                     verifyTokenExpiry: expiry,
                 });
             // TODO send mail
-            const verifyEmail = (0, mail_send_1.mailStructure)([data.email], 'support@fusewallet.io', 'Verify Your Account', this.configService.get('TEMPLATE_VERIFY_ACCOUNT'), {
+            const verifyEmail = (0, mail_send_1.mailStructure)([data.email], 'support@usewallet.io', 'Verify Your Account', this.configService.get('TEMPLATE_VERIFY_ACCOUNT'), {
                 firstName: `${data.firstName}`,
                 subject: 'Verify Your Account',
                 verifyLink: `${BASE_URL}/user/verify/${token}/${data.email}`,
@@ -161,7 +161,7 @@ let UserService = class UserService {
                     verified: false, }
             });
             if (!user) {
-                throw new exceptions_1.UserNotFoundException('oops, seems this account has already been verified');
+                throw new exceptions_1.UserNotFoundException('This account has already been verified');
             }
             user.verified = true;
             await user.save();
@@ -225,7 +225,7 @@ let UserService = class UserService {
             findUser.resetTokenExpiry = Date.now() + 30 * 60 * 1000;
             await findUser.save();
             // TODO: send email
-            const resetPin = (0, mail_send_1.mailStructure)([data.email], 'support@fusewallet.io', 'Reset your Pin', this.configService.get('TEMPLATE_RESET_PIN'), {
+            const resetPin = (0, mail_send_1.mailStructure)([data.email], 'support@usewallet.io', 'Reset your Pin', this.configService.get('TEMPLATE_RESET_PIN'), {
                 firstName: `${findUser.firstName}`,
                 subject: 'Reset Your Pin',
                 resetLink: `${BASE_URL}/user/reset-pin/${token}`,
@@ -447,8 +447,7 @@ let UserService = class UserService {
         }
     }
 };
-exports.UserService = UserService;
-exports.UserService = UserService = __decorate([
+UserService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(user_entity_1.User)),
     __param(1, (0, typeorm_1.InjectRepository)(email_entity_1.Email)),
@@ -458,4 +457,5 @@ exports.UserService = UserService = __decorate([
         config_1.ConfigService,
         mail_service_1.MailService])
 ], UserService);
+exports.UserService = UserService;
 //# sourceMappingURL=user.service.js.map

@@ -11,11 +11,11 @@ const common_1 = require("@nestjs/common");
 const mail_service_1 = require("./mail.service");
 let MailModule = class MailModule {
 };
-exports.MailModule = MailModule;
-exports.MailModule = MailModule = __decorate([
+MailModule = __decorate([
     (0, common_1.Module)({
         providers: [mail_service_1.MailService],
         exports: [mail_service_1.MailService],
     })
 ], MailModule);
+exports.MailModule = MailModule;
 //# sourceMappingURL=mail.module.js.map

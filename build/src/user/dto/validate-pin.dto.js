@@ -13,7 +13,6 @@ exports.ValidatePinDto = void 0;
 const class_validator_1 = require("class-validator");
 class ValidatePinDto {
 }
-exports.ValidatePinDto = ValidatePinDto;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
@@ -25,4 +24,5 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], ValidatePinDto.prototype, "pin", void 0);
+exports.ValidatePinDto = ValidatePinDto;
 //# sourceMappingURL=validate-pin.dto.js.map

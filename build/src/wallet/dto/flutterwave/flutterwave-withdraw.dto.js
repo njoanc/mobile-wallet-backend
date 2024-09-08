@@ -13,7 +13,6 @@ exports.FlutterwaveWithdrawDto = void 0;
 const class_validator_1 = require("class-validator");
 class FlutterwaveWithdrawDto {
 }
-exports.FlutterwaveWithdrawDto = FlutterwaveWithdrawDto;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
@@ -69,4 +68,5 @@ __decorate([
     (0, class_validator_1.IsObject)(),
     __metadata("design:type", Object)
 ], FlutterwaveWithdrawDto.prototype, "meta", void 0);
+exports.FlutterwaveWithdrawDto = FlutterwaveWithdrawDto;
 //# sourceMappingURL=flutterwave-withdraw.dto.js.map

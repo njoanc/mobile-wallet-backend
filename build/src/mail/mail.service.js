@@ -1,11 +1,7 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -46,10 +42,10 @@ let MailService = class MailService {
     constructor() {
         // Initialize nodemailer transporter with Mailtrap SMTP settings
         this.transporter = nodemailer.createTransport({
-            host: configService.get('MAILTRAP_HOST'), // e.g., 'smtp.mailtrap.io'
-            port: configService.get('MAILTRAP_POR'), // e.g., 2525
+            host: configService.get('MAILTRAP_HOST'),
+            port: configService.get('MAILTRAP_POR'),
             auth: {
-                user: configService.get('MAILTRAP_USER'), // Mailtrap SMTP username
+                user: configService.get('MAILTRAP_USER'),
                 pass: configService.get('MAILTRAP_PASSWORD'), // Mailtrap SMTP password
             },
         });
@@ -81,9 +77,9 @@ let MailService = class MailService {
         return html;
     }
 };
-exports.MailService = MailService;
-exports.MailService = MailService = __decorate([
+MailService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [])
 ], MailService);
+exports.MailService = MailService;
 //# sourceMappingURL=mail.service.js.map

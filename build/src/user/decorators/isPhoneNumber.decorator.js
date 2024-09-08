@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IsPhoneNumber = IsPhoneNumber;
+exports.IsPhoneNumber = void 0;
 const class_validator_1 = require("class-validator");
 const phone_validator_1 = require("../../utils/validators/phone.validator"); // Import the validator
 function IsPhoneNumber(validationOptions) {
@@ -14,4 +14,5 @@ function IsPhoneNumber(validationOptions) {
         });
     };
 }
+exports.IsPhoneNumber = IsPhoneNumber;
 //# sourceMappingURL=isPhoneNumber.decorator.js.map

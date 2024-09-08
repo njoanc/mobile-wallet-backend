@@ -23,15 +23,15 @@ let PeerToPeerEventListener = class PeerToPeerEventListener {
         return emailEvent;
     }
 };
-exports.PeerToPeerEventListener = PeerToPeerEventListener;
 __decorate([
     (0, event_emitter_1.OnEvent)('token.*'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], PeerToPeerEventListener.prototype, "handlePeerToPeerEvent", null);
-exports.PeerToPeerEventListener = PeerToPeerEventListener = __decorate([
+PeerToPeerEventListener = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [mail_service_1.MailService])
 ], PeerToPeerEventListener);
+exports.PeerToPeerEventListener = PeerToPeerEventListener;
 //# sourceMappingURL=peer-transfer.listener.js.map

@@ -13,7 +13,6 @@ exports.FlutterwaveChargeCardDto = void 0;
 const class_validator_1 = require("class-validator");
 class FlutterwaveChargeCardDto {
 }
-exports.FlutterwaveChargeCardDto = FlutterwaveChargeCardDto;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
@@ -85,4 +84,5 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], FlutterwaveChargeCardDto.prototype, "callback_url", void 0);
+exports.FlutterwaveChargeCardDto = FlutterwaveChargeCardDto;
 //# sourceMappingURL=flutterwave.charge.dto.js.map

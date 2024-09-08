@@ -13,7 +13,6 @@ exports.ResetTransactionPinDto = void 0;
 const class_validator_1 = require("class-validator");
 class ResetTransactionPinDto {
 }
-exports.ResetTransactionPinDto = ResetTransactionPinDto;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
@@ -26,4 +25,5 @@ __decorate([
     (0, class_validator_1.Length)(4, 4),
     __metadata("design:type", String)
 ], ResetTransactionPinDto.prototype, "confirmPin", void 0);
+exports.ResetTransactionPinDto = ResetTransactionPinDto;
 //# sourceMappingURL=reset-transaction-pin.dto.js.map

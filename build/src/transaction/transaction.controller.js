@@ -23,9 +23,9 @@ let TransactionController = class TransactionController {
         this.transactionService = transactionService;
     }
 };
-exports.TransactionController = TransactionController;
-exports.TransactionController = TransactionController = __decorate([
+TransactionController = __decorate([
     (0, common_1.Controller)('transactions'),
     __metadata("design:paramtypes", [transaction_service_1.TransactionService])
 ], TransactionController);
+exports.TransactionController = TransactionController;
 //# sourceMappingURL=transaction.controller.js.map

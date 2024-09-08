@@ -13,11 +13,11 @@ exports.BeneficiaryDto = void 0;
 const class_validator_1 = require("class-validator");
 class BeneficiaryDto {
 }
-exports.BeneficiaryDto = BeneficiaryDto;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsEmail)(),
     __metadata("design:type", String)
 ], BeneficiaryDto.prototype, "email", void 0);
+exports.BeneficiaryDto = BeneficiaryDto;
 //# sourceMappingURL=beneficiary.dto.js.map

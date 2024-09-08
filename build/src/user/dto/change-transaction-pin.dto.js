@@ -13,7 +13,6 @@ exports.ChangeTransactionPinDto = void 0;
 const class_validator_1 = require("class-validator");
 class ChangeTransactionPinDto {
 }
-exports.ChangeTransactionPinDto = ChangeTransactionPinDto;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
@@ -31,4 +30,5 @@ __decorate([
     (0, class_validator_1.MinLength)(4, { message: 'Pin must be at least 4 characters' }),
     __metadata("design:type", String)
 ], ChangeTransactionPinDto.prototype, "confirmPin", void 0);
+exports.ChangeTransactionPinDto = ChangeTransactionPinDto;
 //# sourceMappingURL=change-transaction-pin.dto.js.map

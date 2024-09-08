@@ -13,7 +13,6 @@ exports.FundWalletByBanktDto = void 0;
 const class_validator_1 = require("class-validator");
 class FundWalletByBanktDto {
 }
-exports.FundWalletByBanktDto = FundWalletByBanktDto;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsNumber)(),
@@ -29,4 +28,5 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], FundWalletByBanktDto.prototype, "accountNumber", void 0);
+exports.FundWalletByBanktDto = FundWalletByBanktDto;
 //# sourceMappingURL=fund-wallet-bank.dto.js.map

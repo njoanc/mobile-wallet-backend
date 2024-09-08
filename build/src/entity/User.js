@@ -13,7 +13,6 @@ exports.User = void 0;
 const typeorm_1 = require("typeorm");
 let User = class User {
 };
-exports.User = User;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
@@ -30,7 +29,8 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
 ], User.prototype, "age", void 0);
-exports.User = User = __decorate([
+User = __decorate([
     (0, typeorm_1.Entity)()
 ], User);
+exports.User = User;
 //# sourceMappingURL=User.js.map

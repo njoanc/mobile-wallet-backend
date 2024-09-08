@@ -15,7 +15,6 @@ const user_entity_1 = require("../../user/entities/user.entity");
 const base_entity_1 = require("../../utils/base.entity");
 let Wallet = class Wallet extends base_entity_1.BaseEntity {
 };
-exports.Wallet = Wallet;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)
@@ -32,7 +31,8 @@ __decorate([
     (0, typeorm_1.Column)({ default: 0 }),
     __metadata("design:type", Number)
 ], Wallet.prototype, "balance", void 0);
-exports.Wallet = Wallet = __decorate([
+Wallet = __decorate([
     (0, typeorm_1.Entity)('Wallet')
 ], Wallet);
+exports.Wallet = Wallet;
 //# sourceMappingURL=wallet.entity.js.map

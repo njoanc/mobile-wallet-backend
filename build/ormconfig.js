@@ -8,7 +8,7 @@ exports.default = (configService) => ({
     username: configService.get('DB_USER'),
     password: configService.get('DB_PASSWORD'),
     database: configService.get('DB_NAME'),
-    synchronize: false, // Set to false in production
+    synchronize: false,
     logging: false,
     entities: [(0, path_1.join)(__dirname, 'src/**/entities/**/*.{ts,js}')],
     migrations: [(0, path_1.join)(__dirname, 'src/database/migrations/*.{ts,js}')],

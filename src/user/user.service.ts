@@ -157,7 +157,7 @@ export class UserService {
             // TODO send mail
             const verifyEmail: EmailOption = mailStructure(
                 [data.email],
-                'support@fusewallet.io',
+                'support@usewallet.io',
                 'Verify Your Account',
                 this.configService.get('TEMPLATE_VERIFY_ACCOUNT'),
                 {
@@ -205,7 +205,7 @@ export class UserService {
             });
             if (!user) {
                 throw new UserNotFoundException(
-                    'oops, seems this account has already been verified',
+                    'This account has already been verified',
                 );
             }
             user.verified = true;
@@ -278,7 +278,7 @@ export class UserService {
             // TODO: send email
             const resetPin: EmailOption = mailStructure(
                 [data.email],
-                'support@fusewallet.io',
+                'support@usewallet.io',
                 'Reset your Pin',
                 this.configService.get('TEMPLATE_RESET_PIN'),
                 {

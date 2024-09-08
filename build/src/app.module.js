@@ -20,8 +20,7 @@ const configuration_1 = __importDefault(require("./config/configuration"));
 const data_source_1 = require("./data-source");
 let AppModule = class AppModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot({
@@ -39,4 +38,5 @@ exports.AppModule = AppModule = __decorate([
         controllers: [],
     })
 ], AppModule);
+exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

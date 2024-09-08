@@ -13,7 +13,6 @@ exports.BaseEntity = void 0;
 const typeorm_1 = require("typeorm");
 class BaseEntity extends typeorm_1.BaseEntity {
 }
-exports.BaseEntity = BaseEntity;
 __decorate([
     (0, typeorm_1.CreateDateColumn)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }),
     __metadata("design:type", Date)
@@ -22,4 +21,5 @@ __decorate([
     (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' }),
     __metadata("design:type", Date)
 ], BaseEntity.prototype, "updatedAt", void 0);
+exports.BaseEntity = BaseEntity;
 //# sourceMappingURL=base.entity.js.map

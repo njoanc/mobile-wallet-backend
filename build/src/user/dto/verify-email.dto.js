@@ -13,7 +13,6 @@ exports.VerifyEmailDto = void 0;
 const class_validator_1 = require("class-validator");
 class VerifyEmailDto {
 }
-exports.VerifyEmailDto = VerifyEmailDto;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsUUID)(),
@@ -26,4 +25,5 @@ __decorate([
     (0, class_validator_1.IsEmail)(),
     __metadata("design:type", String)
 ], VerifyEmailDto.prototype, "email", void 0);
+exports.VerifyEmailDto = VerifyEmailDto;
 //# sourceMappingURL=verify-email.dto.js.map

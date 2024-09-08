@@ -13,7 +13,6 @@ exports.WithdrawWalletDto = void 0;
 const class_validator_1 = require("class-validator");
 class WithdrawWalletDto {
 }
-exports.WithdrawWalletDto = WithdrawWalletDto;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsNumber)(),
@@ -34,4 +33,5 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], WithdrawWalletDto.prototype, "transactionPin", void 0);
+exports.WithdrawWalletDto = WithdrawWalletDto;
 //# sourceMappingURL=withraw-wallet.dto.js.map

@@ -15,7 +15,6 @@ const user_entity_1 = require("../../user/entities/user.entity");
 const base_entity_1 = require("../../utils/base.entity");
 let Transactions = class Transactions extends base_entity_1.BaseEntity {
 };
-exports.Transactions = Transactions;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
@@ -58,7 +57,8 @@ __decorate([
     (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
 ], Transactions.prototype, "updatedAt", void 0);
-exports.Transactions = Transactions = __decorate([
+Transactions = __decorate([
     (0, typeorm_1.Entity)('Transactions')
 ], Transactions);
+exports.Transactions = Transactions;
 //# sourceMappingURL=transaction.entity.js.map

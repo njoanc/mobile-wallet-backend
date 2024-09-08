@@ -19,8 +19,7 @@ const mail_module_1 = require("../mail/mail.module");
 const listeners_1 = require("./listeners");
 let WalletModule = class WalletModule {
 };
-exports.WalletModule = WalletModule;
-exports.WalletModule = WalletModule = __decorate([
+WalletModule = __decorate([
     (0, common_1.Module)({
         controllers: [wallet_controller_1.WalletController],
         providers: [wallet_service_1.WalletService, wallet_entity_1.Wallet, listeners_1.PeerToPeerEventListener],
@@ -34,4 +33,5 @@ exports.WalletModule = WalletModule = __decorate([
         exports: [wallet_service_1.WalletService, wallet_entity_1.Wallet],
     })
 ], WalletModule);
+exports.WalletModule = WalletModule;
 //# sourceMappingURL=wallet.module.js.map

@@ -17,9 +17,9 @@ let WalletController = class WalletController {
         this.walletService = walletService;
     }
 };
-exports.WalletController = WalletController;
-exports.WalletController = WalletController = __decorate([
+WalletController = __decorate([
     (0, common_1.Controller)('wallet'),
     __metadata("design:paramtypes", [wallet_service_1.WalletService])
 ], WalletController);
+exports.WalletController = WalletController;
 //# sourceMappingURL=wallet.controller.js.map

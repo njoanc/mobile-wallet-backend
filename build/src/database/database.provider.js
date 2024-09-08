@@ -32,9 +32,9 @@ let DatabaseService = class DatabaseService {
         }
     }
 };
-exports.DatabaseService = DatabaseService;
-exports.DatabaseService = DatabaseService = __decorate([
+DatabaseService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [typeorm_1.DataSource])
 ], DatabaseService);
+exports.DatabaseService = DatabaseService;
 //# sourceMappingURL=database.provider.js.map

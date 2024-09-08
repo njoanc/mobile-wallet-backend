@@ -13,7 +13,6 @@ exports.PeerTransferDto = void 0;
 const class_validator_1 = require("class-validator");
 class PeerTransferDto {
 }
-exports.PeerTransferDto = PeerTransferDto;
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsNotEmpty)(),
@@ -35,4 +34,5 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], PeerTransferDto.prototype, "transactionPin", void 0);
+exports.PeerTransferDto = PeerTransferDto;
 //# sourceMappingURL=peer-transfer.dto.js.map

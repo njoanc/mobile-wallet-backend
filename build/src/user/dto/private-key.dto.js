@@ -13,10 +13,10 @@ exports.PrivateKeyDto = void 0;
 const class_validator_1 = require("class-validator");
 class PrivateKeyDto {
 }
-exports.PrivateKeyDto = PrivateKeyDto;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], PrivateKeyDto.prototype, "privateKey", void 0);
+exports.PrivateKeyDto = PrivateKeyDto;
 //# sourceMappingURL=private-key.dto.js.map

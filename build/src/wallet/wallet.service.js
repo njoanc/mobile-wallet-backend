@@ -31,8 +31,7 @@ let WalletService = class WalletService {
         this.eventEmitter = eventEmitter;
     }
 };
-exports.WalletService = WalletService;
-exports.WalletService = WalletService = __decorate([
+WalletService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(wallet_entity_1.Wallet)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
@@ -41,4 +40,5 @@ exports.WalletService = WalletService = __decorate([
         user_service_1.UserService,
         event_emitter_1.EventEmitter2])
 ], WalletService);
+exports.WalletService = WalletService;
 //# sourceMappingURL=wallet.service.js.map

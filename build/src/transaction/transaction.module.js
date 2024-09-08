@@ -18,8 +18,7 @@ const wallet_module_1 = require("../wallet/wallet.module");
 const config_1 = require("@nestjs/config");
 let TransactionModule = class TransactionModule {
 };
-exports.TransactionModule = TransactionModule;
-exports.TransactionModule = TransactionModule = __decorate([
+TransactionModule = __decorate([
     (0, common_1.Module)({
         imports: [
             typeorm_1.TypeOrmModule.forFeature([transaction_entity_1.Transactions]),
@@ -32,4 +31,5 @@ exports.TransactionModule = TransactionModule = __decorate([
         exports: [transaction_service_1.TransactionService, transaction_entity_1.Transactions],
     })
 ], TransactionModule);
+exports.TransactionModule = TransactionModule;
 //# sourceMappingURL=transaction.module.js.map

@@ -11,8 +11,8 @@ const passport_1 = require("@nestjs/passport");
 const common_1 = require("@nestjs/common");
 let UserAuthGuard = class UserAuthGuard extends (0, passport_1.AuthGuard)('jwt') {
 };
-exports.UserAuthGuard = UserAuthGuard;
-exports.UserAuthGuard = UserAuthGuard = __decorate([
+UserAuthGuard = __decorate([
     (0, common_1.Injectable)()
 ], UserAuthGuard);
+exports.UserAuthGuard = UserAuthGuard;
 //# sourceMappingURL=user-jwt.guard.js.map

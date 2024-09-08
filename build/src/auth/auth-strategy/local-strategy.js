@@ -27,9 +27,9 @@ let LocalStrategy = class LocalStrategy extends (0, passport_1.PassportStrategy)
         };
     }
 };
-exports.LocalStrategy = LocalStrategy;
-exports.LocalStrategy = LocalStrategy = __decorate([
+LocalStrategy = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], LocalStrategy);
+exports.LocalStrategy = LocalStrategy;
 //# sourceMappingURL=local-strategy.js.map

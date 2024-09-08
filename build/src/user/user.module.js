@@ -17,8 +17,7 @@ const auth_module_1 = require("../auth/auth.module");
 const mail_module_1 = require("../mail/mail.module");
 let UserModule = class UserModule {
 };
-exports.UserModule = UserModule;
-exports.UserModule = UserModule = __decorate([
+UserModule = __decorate([
     (0, common_1.Module)({
         imports: [
             (0, common_1.forwardRef)(() => auth_module_1.AuthModule),
@@ -32,4 +31,5 @@ exports.UserModule = UserModule = __decorate([
         providers: [user_service_1.UserService, user_entity_1.User, email_entity_1.Email],
     })
 ], UserModule);
+exports.UserModule = UserModule;
 //# sourceMappingURL=user.module.js.map

@@ -17,8 +17,8 @@ let IsPhoneNumberValid = class IsPhoneNumberValid {
         return 'Phone number is not valid';
     }
 };
-exports.IsPhoneNumberValid = IsPhoneNumberValid;
-exports.IsPhoneNumberValid = IsPhoneNumberValid = __decorate([
+IsPhoneNumberValid = __decorate([
     (0, class_validator_1.ValidatorConstraint)({ name: 'isPhoneNumberValid', async: false })
 ], IsPhoneNumberValid);
+exports.IsPhoneNumberValid = IsPhoneNumberValid;
 //# sourceMappingURL=phone.validator.js.map

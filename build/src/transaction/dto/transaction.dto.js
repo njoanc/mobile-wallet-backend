@@ -15,7 +15,6 @@ const transaction_enum_1 = require("../constants/transaction.enum");
 const transaction_enum_2 = require("../constants/transaction.enum");
 class TransactionDto {
 }
-exports.TransactionDto = TransactionDto;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
@@ -46,4 +45,5 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], TransactionDto.prototype, "narration", void 0);
+exports.TransactionDto = TransactionDto;
 //# sourceMappingURL=transaction.dto.js.map

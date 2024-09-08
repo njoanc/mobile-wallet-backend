@@ -17,7 +17,6 @@ const platform_enum_1 = require("../../utils/enums/platform.enum");
 const role_enum_1 = require("../../utils/enums/role.enum");
 let User = class User extends base_entity_1.BaseEntity {
 };
-exports.User = User;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)
@@ -33,7 +32,7 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({
         type: 'varchar',
-        unique: true, // Ensure email is unique in the database
+        unique: true,
         nullable: false
     }),
     (0, class_validator_1.IsEmail)({}, { message: 'Invalid email format' }) // Validate email format
@@ -91,7 +90,7 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({
         type: 'enum',
-        enum: platform_enum_1.Platform, // Reference enum from the file
+        enum: platform_enum_1.Platform,
         default: platform_enum_1.Platform.ANDROID,
     }),
     (0, class_validator_1.IsEnum)(platform_enum_1.Platform, { message: 'Platform must be one of: android, ios, web' }) // Validate platform
@@ -110,14 +109,15 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({
         type: 'enum',
-        enum: role_enum_1.Role, // Reference enum for roles
+        enum: role_enum_1.Role,
         default: role_enum_1.Role.USER,
     }),
     (0, class_validator_1.IsEnum)(role_enum_1.Role, { message: 'Role must be one of: user, admin, super_admin' }) // Validate role
     ,
     __metadata("design:type", String)
 ], User.prototype, "role", void 0);
-exports.User = User = __decorate([
+User = __decorate([
     (0, typeorm_1.Entity)('User')
 ], User);
+exports.User = User;
 //# sourceMappingURL=user.entity.js.map

@@ -13,7 +13,6 @@ exports.ResetPinDto = void 0;
 const class_validator_1 = require("class-validator");
 class ResetPinDto {
 }
-exports.ResetPinDto = ResetPinDto;
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
@@ -33,4 +32,5 @@ __decorate([
     (0, class_validator_1.MinLength)(6, { message: 'Pin must be at least 6 characters' }),
     __metadata("design:type", String)
 ], ResetPinDto.prototype, "confirmPin", void 0);
+exports.ResetPinDto = ResetPinDto;
 //# sourceMappingURL=reset-pin.dto.js.map

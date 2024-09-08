@@ -24,12 +24,12 @@ let TransactionService = class TransactionService {
         this.walletService = walletService;
     }
 };
-exports.TransactionService = TransactionService;
-exports.TransactionService = TransactionService = __decorate([
+TransactionService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(transaction_entity_1.Transactions)),
     __param(1, (0, common_1.Inject)((0, common_1.forwardRef)(() => wallet_service_1.WalletService))),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         wallet_service_1.WalletService])
 ], TransactionService);
+exports.TransactionService = TransactionService;
 //# sourceMappingURL=transaction.service.js.map

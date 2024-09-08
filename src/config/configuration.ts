@@ -1,4 +1,7 @@
 import { registerAs } from '@nestjs/config';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export default registerAs('app', () => ({
   environment: process.env.NODE_ENV || 'development',

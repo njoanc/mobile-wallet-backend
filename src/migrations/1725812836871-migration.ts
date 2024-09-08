@@ -1,11 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Migration1725809362389 = void 0;
-class Migration1725809362389 {
-    constructor() {
-        this.name = 'Migration1725809362389';
-    }
-    async up(queryRunner) {
+import { MigrationInterface, QueryRunner } from "typeorm";
+
+export class Migration1725812836871 implements MigrationInterface {
+    name = 'Migration1725812836871'
+
+    public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TYPE "public"."User_platform_enum" AS ENUM('android', 'ios', 'web')`);
         await queryRunner.query(`CREATE TYPE "public"."User_role_enum" AS ENUM('user', 'admin', 'super_admin')`);
         await queryRunner.query(`CREATE TABLE "User" ("createdAt" TIMESTAMP NOT NULL DEFAULT now(), "updatedAt" TIMESTAMP NOT NULL DEFAULT now(), "id" uuid NOT NULL DEFAULT uuid_generate_v4(), "firstName" character varying NOT NULL DEFAULT '', "lastName" character varying NOT NULL DEFAULT '', "email" character varying NOT NULL, "pin" character varying NOT NULL, "phone" character varying NOT NULL, "transactionPin" character varying NOT NULL DEFAULT '', "verified" boolean NOT NULL DEFAULT false, "privateKey" character varying NOT NULL DEFAULT '', "resetToken" character varying NOT NULL DEFAULT '', "resetTokenExpiry" bigint NOT NULL DEFAULT '10000', "dob" character varying NOT NULL DEFAULT '', "isAdmin" boolean NOT NULL DEFAULT false, "deviceId" character varying NOT NULL DEFAULT '', "deviceIp" character varying NOT NULL DEFAULT '', "deviceModel" character varying NOT NULL DEFAULT '', "platform" "public"."User_platform_enum" NOT NULL DEFAULT 'android', "lastLoggedIn" character varying NOT NULL DEFAULT '', "beneficiaries" text, "role" "public"."User_role_enum" NOT NULL DEFAULT 'user', CONSTRAINT "UQ_4a257d2c9837248d70640b3e36e" UNIQUE ("email"), CONSTRAINT "PK_9862f679340fb2388436a5ab3e4" PRIMARY KEY ("id"))`);
@@ -15,7 +13,8 @@ class Migration1725809362389 {
         await queryRunner.query(`ALTER TABLE "Wallet" ADD CONSTRAINT "FK_2f7aa51d6746fc8fc8ed63ddfbc" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE NO ACTION`);
         await queryRunner.query(`ALTER TABLE "Transactions" ADD CONSTRAINT "FK_f01450fedf7507118ad25dcf41e" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE NO ACTION`);
     }
-    async down(queryRunner) {
+
+    public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`ALTER TABLE "Transactions" DROP CONSTRAINT "FK_f01450fedf7507118ad25dcf41e"`);
         await queryRunner.query(`ALTER TABLE "Wallet" DROP CONSTRAINT "FK_2f7aa51d6746fc8fc8ed63ddfbc"`);
         await queryRunner.query(`DROP TABLE "Transactions"`);
@@ -25,6 +24,5 @@ class Migration1725809362389 {
         await queryRunner.query(`DROP TYPE "public"."User_role_enum"`);
         await queryRunner.query(`DROP TYPE "public"."User_platform_enum"`);
     }
+
 }
-exports.Migration1725809362389 = Migration1725809362389;
-//# sourceMappingURL=1725809362389-migration.js.map

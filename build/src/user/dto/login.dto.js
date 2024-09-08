@@ -13,7 +13,6 @@ exports.LogInUserDto = void 0;
 const class_validator_1 = require("class-validator");
 class LogInUserDto {
 }
-exports.LogInUserDto = LogInUserDto;
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
@@ -31,4 +30,5 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], LogInUserDto.prototype, "pin", void 0);
+exports.LogInUserDto = LogInUserDto;
 //# sourceMappingURL=login.dto.js.map

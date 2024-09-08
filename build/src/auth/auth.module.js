@@ -16,8 +16,7 @@ const jwt_strategy_1 = require("./auth-strategy/jwt-strategy");
 const config_1 = require("@nestjs/config");
 let AuthModule = class AuthModule {
 };
-exports.AuthModule = AuthModule;
-exports.AuthModule = AuthModule = __decorate([
+AuthModule = __decorate([
     (0, common_1.Module)({
         imports: [
             (0, common_1.forwardRef)(() => user_module_1.UserModule),
@@ -35,4 +34,5 @@ exports.AuthModule = AuthModule = __decorate([
         exports: [auth_service_1.AuthService],
     })
 ], AuthModule);
+exports.AuthModule = AuthModule;
 //# sourceMappingURL=auth.module.js.map

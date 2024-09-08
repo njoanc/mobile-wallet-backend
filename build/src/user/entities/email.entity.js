@@ -14,7 +14,6 @@ const typeorm_1 = require("typeorm");
 const base_entity_1 = require("../../utils/base.entity");
 let Email = class Email extends base_entity_1.BaseEntity {
 };
-exports.Email = Email;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)
@@ -35,7 +34,8 @@ __decorate([
     (0, typeorm_1.Column)({ default: true }),
     __metadata("design:type", Boolean)
 ], Email.prototype, "valid", void 0);
-exports.Email = Email = __decorate([
+Email = __decorate([
     (0, typeorm_1.Entity)('Email')
 ], Email);
+exports.Email = Email;
 //# sourceMappingURL=email.entity.js.map

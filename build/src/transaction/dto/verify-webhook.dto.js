@@ -13,7 +13,6 @@ exports.VerifyWebhookDto = void 0;
 const class_validator_1 = require("class-validator");
 class VerifyWebhookDto {
 }
-exports.VerifyWebhookDto = VerifyWebhookDto;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
@@ -33,4 +32,5 @@ __decorate([
     (0, class_validator_1.IsObject)(),
     __metadata("design:type", Object)
 ], VerifyWebhookDto.prototype, "body", void 0);
+exports.VerifyWebhookDto = VerifyWebhookDto;
 //# sourceMappingURL=verify-webhook.dto.js.map

@@ -95,7 +95,6 @@ let UserController = class UserController {
         return await this.userService.checkBeneficiary(users.userId, body);
     }
 };
-exports.UserController = UserController;
 __decorate([
     (0, common_2.UseGuards)(guards_1.UserAuthGuard),
     (0, swagger_1.ApiBearerAuth)(),
@@ -245,9 +244,10 @@ __decorate([
     __metadata("design:paramtypes", [Object, beneficiary_dto_1.BeneficiaryDto]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getSingleBeneficiary", null);
-exports.UserController = UserController = __decorate([
+UserController = __decorate([
     (0, common_1.Controller)('user'),
     __metadata("design:paramtypes", [auth_service_1.AuthService,
         user_service_1.UserService])
 ], UserController);
+exports.UserController = UserController;
 //# sourceMappingURL=user.controller.js.map
