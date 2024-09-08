@@ -14,7 +14,7 @@ services:
     volumes:
       - .:/usr/src/app
     env_file:
-      - .env
+      - .env.docker
     
     environment:
       - NODE_ENV=${NODE_ENV}
