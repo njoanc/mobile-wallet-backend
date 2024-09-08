@@ -1,0 +1,60 @@
+version: "3.7"
+
+services:
+  web:
+    image: wallet
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    container_name: mobile_wallet_api
+    restart: always
+    ports:
+      - "8080:8000"  # Host port 8080 mapped to container's port 8000
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - .env
+    
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - PORT=8000  # Container internal port
+      - SECRET_KEY=${SECRET_KEY}
+      - FLW_SECRET_KEY=${FLW_SECRET_KEY}
+      - FLW_PUBLIC_KEY=${FLW_PUBLIC_KEY}
+      - FLW_ENCRYPTION_KEY=${FLW_ENCRYPTION_KEY}
+      - CODECOV_TOKEN=${CODECOV_TOKEN}
+      - DB_URI=${DB_URI}
+      - MAILTRAP_HOST=${MAILTRAP_HOST}         # Mailtrap host
+      - MAILTRAP_PORT=${MAILTRAP_PORT}         # Mailtrap port (usually 2525)
+      - MAILTRAP_USER=${MAILTRAP_USER}         # Mailtrap SMTP username
+      - MAILTRAP_PASSWORD=${MAILTRAP_PASSWORD} # Mailtrap SMTP password
+      - WEBHOOK_URL=${WEBHOOK_URL}
+      - WEBHOOK_HASH=${WEBHOOK_HASH}
+      - API_BASE_URL=${API_BASE_URL}
+    depends_on:
+      - postgres  # Ensure the database is running before starting the web service
+    networks:
+      - mobilewallet-network
+
+  postgres:
+    image: postgres:13-alpine
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: Kazubajoanna@12
+      POSTGRES_DB: wallet_api
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"  # Expose PostgreSQL port
+    networks:
+      - mobilewallet-network
+
+networks:
+  mobilewallet-network:
+    name: fmobilewallet-network
+
+volumes:
+  db-data:
