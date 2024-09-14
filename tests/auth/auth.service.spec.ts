@@ -7,6 +7,8 @@ import { UserModule } from '../../src/user/user.module';
 import { User } from '../../src/user/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
 import { DataConflictException } from '../../src/exceptions/conflict-exceptions';
+import { JwtStrategy } from '../../src/auth/auth-strategy';
+import { ConfigService } from '@nestjs/config';
 
 jest.setTimeout(60000);
 
@@ -17,15 +19,17 @@ describe('AuthService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         AuthService,
-        User,
+        JwtStrategy,
         {
-          provide: JwtService,
-          useFactory: () => ({
-            sign: jest.fn(() => true),
-          }),
+          provide: ConfigService,
+          useValue: {
+            get: jest.fn((key: string) => {
+              if (key === 'SECRET_KEY') return 'test-secret'; // Mock the secret key here
+              return null;
+            }),
+          },
         },
       ],
-      imports: [AppModule, UserModule],
     }).compile();
 
     service = module.get<AuthService>(AuthService);
