@@ -13,6 +13,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:13
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpassword
+          POSTGRES_DB: testdb
+        options: >-
+          --health-cmd="pg_isready -U testuser -d testdb"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
     steps:
       # Step 1: Checkout the code
       - name: Checkout code
@@ -28,15 +43,30 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run tests and collect coverage (assuming you have a test command in package.json)
+      # Step 4: Wait for PostgreSQL to be ready
+      - name: Wait for PostgreSQL
+        run: |
+          until pg_isready -h 127.0.0.1 -p 5432 -U testuser -d testdb; do
+            echo "Waiting for PostgreSQL to be ready..."
+            sleep 2
+          done
+
+      # Step 5: Run tests and collect coverage (assuming you have a test command in package.json)
       - name: Run tests
         run: npm test
+        env:
+          DATABASE_HOST: 127.0.0.1
+          DATABASE_PORT: 5432
+          DATABASE_USER: testuser
+          DATABASE_PASSWORD: testpassword
+          DATABASE_NAME: testdb
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
-      # Step 5: Generate code coverage report
+      # Step 6: Generate code coverage report
       - name: Generate code coverage
         run: npm run coverage # Update this based on your coverage script in package.json
 
-      # Step 6: Upload coverage report to Codecov
+      # Step 7: Upload coverage report to Codecov
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
@@ -45,4 +75,3 @@ jobs:
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true # Will fail the CI if Codecov cannot upload
-
