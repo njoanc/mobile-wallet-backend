@@ -26,11 +26,14 @@ export class AuthService {
 
       const payload = { sub: user.id };
       obj.pin = hashCred(obj.pin);
+      // Update user information and set isVerified to true
       const newUser = await this.UserRepository.save({
         id: user.id,
         lastLoggedIn: new Date().toLocaleString(),
         ...obj,
+        verified: true,
       });
+
       return {
         access_token: this.jwtService.sign(payload),
         message: 'Login Successful',

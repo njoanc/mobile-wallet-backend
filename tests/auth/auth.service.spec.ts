@@ -1,38 +1,84 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from '../../src/auth/auth.service';
-import { LogInUserDto } from '../../src/user/dto/login.dto';
-import { SignUpDto } from '../../src/user/dto/signup.dto';
-import { AppModule } from '../../src/app.module';
-import { UserModule } from '../../src/user/user.module';
-import { User } from '../../src/user/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
-import { DataConflictException } from '../../src/exceptions/conflict-exceptions';
+import { User } from '../../src/user/entities/user.entity';
+import { Repository } from 'typeorm';
+import { getRepositoryToken } from '@nestjs/typeorm';
 import { JwtStrategy } from '../../src/auth/auth-strategy';
 import { ConfigService } from '@nestjs/config';
+import { UserService } from '../../src/user/user.service';
+import { SignUpDto } from '../../src/user/dto/signup.dto';
+import { DataConflictException } from '../../src/exceptions';
+import { LogInUserDto } from '../../src/user/dto/login.dto';
+import { MailService } from '../../src/mail/mail.service'; // Mock MailService if required
+import { Email } from '../../src/user/entities/email.entity'; // Add the Email entity here
 
-jest.setTimeout(60000);
+// Mock for UserRepository
+const mockUserRepository = {
+  findOne: jest.fn(),
+  create: jest.fn(),
+  save: jest.fn(),
+};
+
+// Mock for EmailRepository
+const mockEmailRepository = {
+  findOne: jest.fn(),
+};
+
+// Mock for MailService
+const mockMailService = {
+  sendMail: jest.fn(),
+};
 
 describe('AuthService', () => {
   let service: AuthService;
+  let userService: UserService;
+  let jwtService: JwtService;
+  let userRepository: Repository<User>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         AuthService,
+        UserService,
         JwtStrategy,
         {
           provide: ConfigService,
           useValue: {
             get: jest.fn((key: string) => {
-              if (key === 'SECRET_KEY') return 'test-secret'; // Mock the secret key here
+              if (key === 'SECRET_KEY') return 'test-secret';
               return null;
             }),
           },
+        },
+        {
+          provide: JwtService,
+          useValue: {
+            sign: jest.fn(() => 'mockedToken'),
+          },
+        },
+        {
+          // Mock the UserRepository using getRepositoryToken
+          provide: getRepositoryToken(User),
+          useValue: mockUserRepository,
+        },
+        {
+          // Mock the EmailRepository using getRepositoryToken
+          provide: getRepositoryToken(Email),
+          useValue: mockEmailRepository,
+        },
+        {
+          // Mock MailService
+          provide: MailService,
+          useValue: mockMailService,
         },
       ],
     }).compile();
 
     service = module.get<AuthService>(AuthService);
+    userRepository = module.get<Repository<User>>(getRepositoryToken(User));
+    jwtService = module.get<JwtService>(JwtService);
+    userService = module.get<UserService>(UserService);
   });
 
   describe('signup a user', () => {
@@ -45,14 +91,17 @@ describe('AuthService', () => {
       user.phone = '08012345678';
       user.deviceId = '123456789';
 
-      // Mock the service to throw the DataConflictException
+      // Mocking findUser to simulate existing user
+      jest
+        .spyOn(userService, 'findUser')
+        .mockResolvedValue({ email: 'test101@yahoo.com' } as any);
+
       jest
         .spyOn(service, 'signup')
         .mockRejectedValue(
           new DataConflictException('This user already exists!'),
         );
 
-      //use `.rejects` to check for exceptions
       await expect(service.signup(user)).rejects.toThrow(DataConflictException);
       await expect(service.signup(user)).rejects.toThrow(
         'This user already exists!',
@@ -68,20 +117,15 @@ describe('AuthService', () => {
       user.phone = '08012345679';
       user.deviceId = '987654321';
 
-      // Mocking the result of the signup method to return the expected structure
       const mockResult = {
         message: 'User created successfully',
-        newUser: user, // or a mocked User object
-        walletInstance: {
-          /* mocked wallet instance */
-        },
+        newUser: user,
+        walletInstance: {},
         privateKey: 'mockedPrivateKey',
       } as any;
 
-      // Mock the signup method to return this structure
       jest.spyOn(service, 'signup').mockResolvedValue(mockResult);
 
-      // Test the result without try-catch
       await expect(service.signup(user)).resolves.toEqual(mockResult);
     });
   });
