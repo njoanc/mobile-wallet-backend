@@ -3,10 +3,12 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import ormconfig from '../ormconfig';
-import { DatabaseService } from './database/database.provider'; 
+import { DatabaseService } from './database/database.provider';
 import { UserModule } from './user/user.module';
+import { WalletModule } from './wallet/wallet.module';
 import configuration from './config/configuration';
-import {AppDataSource} from "./data-source"
+import { AppDataSource } from './data-source';
+import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -23,8 +25,10 @@ import {AppDataSource} from "./data-source"
       }),
     }),
     UserModule,
+    WalletModule,
+    TransactionModule,
   ],
-  providers: [DatabaseService],  
+  providers: [DatabaseService],
   controllers: [],
 })
 export class AppModule {}

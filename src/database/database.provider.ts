@@ -1,4 +1,3 @@
-// src/database/database.service.ts
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 
