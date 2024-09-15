@@ -1,6 +1,5 @@
 name: CI/CD Pipeline
 
-# Trigger the workflow on every push or pull request to the main branch
 on:
   push:
     branches:
@@ -29,21 +28,17 @@ jobs:
           --health-retries=5
 
     steps:
-      # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14' # Use the Node.js version you prefer
+          node-version: '14'
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Wait for PostgreSQL to be ready
       - name: Wait for PostgreSQL
         run: |
           until pg_isready -h 127.0.0.1 -p 5432 -U testuser -d testdb; do
@@ -51,7 +46,12 @@ jobs:
             sleep 2
           done
 
-      # Step 5: Run tests and collect coverage (assuming you have a test command in package.json)
+      - name: Create database
+        run: |
+          psql -h 127.0.0.1 -U testuser -c "CREATE DATABASE testdb;" || true
+        env:
+          PGPASSWORD: testpassword
+
       - name: Run tests
         run: npm test
         env:
@@ -62,16 +62,14 @@ jobs:
           DATABASE_NAME: testdb
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
-      # Step 6: Generate code coverage report
       - name: Generate code coverage
-        run: npm run coverage # Update this based on your coverage script in package.json
+        run: npm run coverage
 
-      # Step 7: Upload coverage report to Codecov
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          token: ${{ secrets.CODECOV_TOKEN }} # Make sure you added CODECOV_TOKEN as a secret in GitHub
-          files: ./coverage/lcov.info # Adjust this based on where your coverage report is located
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/lcov.info
           flags: unittests
           name: codecov-umbrella
-          fail_ci_if_error: true # Will fail the CI if Codecov cannot upload
+          fail_ci_if_error: true
