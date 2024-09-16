@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.15.0' # specify your Node.js version
+          node-version: '20.15.0'
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -27,7 +27,7 @@ jobs:
       - name: Run tests
         run: npm test
         env:
-          CI: true # Ensure the tests run in continuous integration mode
+          CI: true
 
       - name: Build
         run: npm run build
