@@ -116,6 +116,19 @@ npm run test
 
 the server will be running on http://localhost:3000
 
-### Deployed to dockerhub
+## Deployed to dockerhub
 
 - Docker repository link: https://hub.docker.com/r/jehanne123/wallet
+
+## Areas for Improvement
+
+- **CI/CD Integration**: I did not have sufficient time to fully implement CI/CD pipelines, which would have ensured that all tests were consistently passing. This is an area I would prioritize with more time.
+- **Docker Testing**: The Docker repository has not been thoroughly tested to confirm that all services, such as database connections, are functioning as expected. Further testing would be needed to ensure smooth operation in the Docker environment.
+
+- **API Documentation**: The current API documentation lacks some input fields. While Swagger is partially set up, I recommend using Postman for testing all endpoints, as Swagger is not yet fully complete.
+
+- **Database Schema**: The database schema was not included in the README due to time constraints. With additional time, I would provide more detailed documentation on the schema design.
+
+- **Application Design**: The application architecture could benefit from further refinement to better adhere to best practices, such as separation of concerns. Given more time, I would focus on restructuring the design for improved scalability and maintainability.
+
+- **Redis Integration**: Redis was not implemented due to time limitations. With more time, I would include Redis for caching and improving performance.
